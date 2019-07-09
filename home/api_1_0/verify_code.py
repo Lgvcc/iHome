@@ -8,7 +8,7 @@ from home.constants import REDIS_IMAGE_CODE_EXPIRE
 from home.utils.response_code import RET
 
 
-@api.route('/get_image_codes/<image_code_id>')
+@api.route('/image_codes/<image_code_id>')
 def get_image_code(image_code_id):
     """
     获取图片验证码
