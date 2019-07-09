@@ -2,7 +2,7 @@ function getCookie(name) {
     var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
     return r ? r[1] : undefined;
 }
-
+// 保存图片验证码编号
 var imageCodeId = "";
 
 function generateUUID() {
@@ -19,6 +19,13 @@ function generateUUID() {
 }
 
 function generateImageCode() {
+    // 图片验证码
+    // 1.生成图片验证码编号
+    image_code_id = generateUUID();
+    // 2.拼接图片验证码url
+    var url = '/api/v1.0/image_codes/' + image_code_id;
+    // 3.设置img标签的src属性
+    $(".image-code img").attr('src', url);
 }
 
 function sendSMSCode() {
